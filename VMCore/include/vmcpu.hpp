@@ -98,6 +98,7 @@ class VMCPU {
         // std::condition_variable memConditionVar;
         int currentFrameNumber;
         bool isError;
+        
 
     private:
         int executer(VBYTE);
@@ -111,6 +112,117 @@ class VMCPU {
         int loadFrame(int);
         void restoreFrame();
         //void vmScan();
+
+        void funcException(std::string e);
+
+        // Opcodes functions
+        void funcNop();
+        void funcEE();
+        void funcMov();
+        void funcMovmb();
+        void funcMovmw();
+        void funcMovb();
+        void funcMovw();
+        void funcMovbm();
+        void funcMovwm();
+        void funcMovmrb();
+        void funcMovmrw();
+        void funcMovmd();
+        void funcMovd();
+        void funcMovdm();
+        void funcMovmrd();
+        void funcJmp();
+        void funcJz();
+        void funcJnz();
+        void funcJae();
+        void funcJbe();
+        void funcJb();
+        void funcJa();
+        void funcAdvr();
+        void funcAdrr();
+        void funcAdrrl();
+        void funcSubvr();
+        void funcSubrr();
+        void funcSubrrl();
+        void funcXor();
+        void funcXorl();
+        void funcNot();
+        void funcNotb();
+        void funcAdvrd();
+        void funcSubvrd();
+        void funcShr();
+        void funcShl();
+        void funcCmp();
+        void funcCmpl();
+        void funcVmSysbus();
+        void funcPush();
+        void funcPop();
+        void funcClSt();
+        void funcSetSp();
+        void funcPoc();
+        void funcPocn();
+        void funcTib();
+        void funcGic();
+        void funcPic();
+        void funcPicn();
+        void funcPxv();
+        void funcPxvn();
+
+        const std::map<int, void (*foo)()> dicOpcodesFunction = {
+            { 0x56, &funcNop },
+            { 0x6d, &funcNop },
+            { NOP, &funcNop },
+            { EE, &funcEE },
+            { MOV, &funcMov },
+            { MOVMB, &funcMovmb },
+            { MOVMW, &funcMovmw },
+            { MOVB, &funcMovb },
+            { MOVW, &funcMovw },
+            { MOVBM, &funcMovbm },
+            { MOVWM, &funcMovwm },
+            { MOVMRB, &funcMovmrb },
+            { MOVMRW, &funcMovmrw },
+            { MOVMD, &funcMovmd },
+            { MOVD, &funcMovd },
+            { MOVDM, &funcMovdm },
+            { MOVMRD, &funcMovmrd },
+            { JMP, &funcJmp },
+            { JZ, &funcJz },
+            { JNZ, &funcJnz },
+            { JAE, &funcJae },
+            { JBE, &funcJbe },
+            { JB, &funcJb },
+            { JA, &funcJa },
+            { ADVR, &funcAdvr },
+            { ADRR, &funcAdrr },
+            { ADRRL, &funcAdrrl },
+            { SUBVR, &funcSubvr },
+            { SUBRR, &funcSubrr },
+            { SUBRRL, &funcSubrrl },
+            { XOR, &funcXor },
+            { XORL, &funcXorl },
+            { NOT, &funcNot },
+            { NOTB, &funcNotb },
+            { ADVRD, &funcAdvrd },
+            { SUBVRD, &funcSubvrd },
+            { SHR, &funcShr },
+            { SHL, &funcShl },
+            { CMP, &funcCmp },
+            { CMPL, &funcCmpl },
+            { VMSYSBUS, &funcVmSysbus },
+            { PUSH, &funcPush },
+            { POP, &funcPop },
+            { CLST, &funcClSt },
+            { SETSP, &funcSetSp },
+            { POC, &funcPoc },
+            { POCN, &funcPocn },
+            { TIB, &funcTib },
+            { GIC, &funcGic },
+            { PIC, &funcPic },
+            { PICN, &funcPicn },
+            { PXV, &funcPxv },
+            { PXVN, &funcPxvn }
+        };
 
     public:
         VMCPU();
