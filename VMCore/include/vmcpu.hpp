@@ -81,6 +81,8 @@ typedef struct {
 #endif // _VM_CPU_TEST_
 
 class VMCPU {
+    typedef void (Mfunc::* MFP)();
+
     public:
         bool areFramesNeeded;
         std::map<int, int> frameMap;
@@ -168,61 +170,7 @@ class VMCPU {
         void funcPxv();
         void funcPxvn();
 
-        const std::map<int, void (*foo)()> dicOpcodesFunction = {
-            { 0x56, &funcNop },
-            { 0x6d, &funcNop },
-            { NOP, &funcNop },
-            { EE, &funcEE },
-            { MOV, &funcMov },
-            { MOVMB, &funcMovmb },
-            { MOVMW, &funcMovmw },
-            { MOVB, &funcMovb },
-            { MOVW, &funcMovw },
-            { MOVBM, &funcMovbm },
-            { MOVWM, &funcMovwm },
-            { MOVMRB, &funcMovmrb },
-            { MOVMRW, &funcMovmrw },
-            { MOVMD, &funcMovmd },
-            { MOVD, &funcMovd },
-            { MOVDM, &funcMovdm },
-            { MOVMRD, &funcMovmrd },
-            { JMP, &funcJmp },
-            { JZ, &funcJz },
-            { JNZ, &funcJnz },
-            { JAE, &funcJae },
-            { JBE, &funcJbe },
-            { JB, &funcJb },
-            { JA, &funcJa },
-            { ADVR, &funcAdvr },
-            { ADRR, &funcAdrr },
-            { ADRRL, &funcAdrrl },
-            { SUBVR, &funcSubvr },
-            { SUBRR, &funcSubrr },
-            { SUBRRL, &funcSubrrl },
-            { XOR, &funcXor },
-            { XORL, &funcXorl },
-            { NOT, &funcNot },
-            { NOTB, &funcNotb },
-            { ADVRD, &funcAdvrd },
-            { SUBVRD, &funcSubvrd },
-            { SHR, &funcShr },
-            { SHL, &funcShl },
-            { CMP, &funcCmp },
-            { CMPL, &funcCmpl },
-            { VMSYSBUS, &funcVmSysbus },
-            { PUSH, &funcPush },
-            { POP, &funcPop },
-            { CLST, &funcClSt },
-            { SETSP, &funcSetSp },
-            { POC, &funcPoc },
-            { POCN, &funcPocn },
-            { TIB, &funcTib },
-            { GIC, &funcGic },
-            { PIC, &funcPic },
-            { PICN, &funcPicn },
-            { PXV, &funcPxv },
-            { PXVN, &funcPxvn }
-        };
+        std::map <int, MFP> dicOpcodesFunction;
 
     public:
         VMCPU();
