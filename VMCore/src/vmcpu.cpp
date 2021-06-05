@@ -79,7 +79,7 @@ VMCPU::VMCPU()
     dicOpcodesFunction.insert(std::make_pair(PIC, &VMCPU::funcPic));
     dicOpcodesFunction.insert(std::make_pair(PICN, &VMCPU::funcPicn));
     dicOpcodesFunction.insert(std::make_pair(PXV, &VMCPU::funcPxv));
-    dicOpcodesFunction.insert(std::make_pair(PXVN, &VMCPU::funcPxvn }
+    dicOpcodesFunction.insert(std::make_pair(PXVN, &VMCPU::funcPxvn));
 }
 
 VMCPU::~VMCPU()
