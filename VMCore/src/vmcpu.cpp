@@ -25,61 +25,6 @@ VMCPU::VMCPU()
     #else //_LINUX_DEV_ENVIRONMENT
         sysBus = new UNIX();
     #endif
-
-
-    dicOpcodesFunction.insert(std::make_pair(0x56, &VMCPU::funcNop));
-    dicOpcodesFunction.insert(std::make_pair(0x6d, &VMCPU::funcNop));
-    dicOpcodesFunction.insert(std::make_pair(NOP, &VMCPU::funcNop));
-    dicOpcodesFunction.insert(std::make_pair(EE, &VMCPU::funcEE));
-    dicOpcodesFunction.insert(std::make_pair(MOV, &VMCPU::funcMov));
-    dicOpcodesFunction.insert(std::make_pair(MOVMB, &VMCPU::funcMovmb));
-    dicOpcodesFunction.insert(std::make_pair(MOVMW, &VMCPU::funcMovmw));
-    dicOpcodesFunction.insert(std::make_pair(MOVB, &VMCPU::funcMovb));
-    dicOpcodesFunction.insert(std::make_pair(MOVW, &VMCPU::funcMovw));
-    dicOpcodesFunction.insert(std::make_pair(MOVBM, &VMCPU::funcMovbm));
-    dicOpcodesFunction.insert(std::make_pair(MOVWM, &VMCPU::funcMovwm));
-    dicOpcodesFunction.insert(std::make_pair(MOVMRB, &VMCPU::funcMovmrb));
-    dicOpcodesFunction.insert(std::make_pair(MOVMRW, &VMCPU::funcMovmrw));
-    dicOpcodesFunction.insert(std::make_pair(MOVMD, &VMCPU::funcMovmd));
-    dicOpcodesFunction.insert(std::make_pair(MOVD, &VMCPU::funcMovd));
-    dicOpcodesFunction.insert(std::make_pair(MOVDM, &VMCPU::funcMovdm));
-    dicOpcodesFunction.insert(std::make_pair(MOVMRD, &VMCPU::funcMovmrd));
-    dicOpcodesFunction.insert(std::make_pair(JMP, &VMCPU::funcJmp));
-    dicOpcodesFunction.insert(std::make_pair(JZ, &VMCPU::funcJz));
-    dicOpcodesFunction.insert(std::make_pair(JNZ, &VMCPU::funcJnz));
-    dicOpcodesFunction.insert(std::make_pair(JAE, &VMCPU::funcJae));
-    dicOpcodesFunction.insert(std::make_pair(JBE, &VMCPU::funcJbe));
-    dicOpcodesFunction.insert(std::make_pair(JB, &VMCPU::funcJb));
-    dicOpcodesFunction.insert(std::make_pair(JA, &VMCPU::funcJa));
-    dicOpcodesFunction.insert(std::make_pair(ADVR, &VMCPU::funcAdvr));
-    dicOpcodesFunction.insert(std::make_pair(ADRR, &VMCPU::funcAdrr));
-    dicOpcodesFunction.insert(std::make_pair(ADRRL, &VMCPU::funcAdrrl));
-    dicOpcodesFunction.insert(std::make_pair(SUBVR, &VMCPU::funcSubvr));
-    dicOpcodesFunction.insert(std::make_pair(SUBRR, &VMCPU::funcSubrr));
-    dicOpcodesFunction.insert(std::make_pair(SUBRRL, &VMCPU::funcSubrrl));
-    dicOpcodesFunction.insert(std::make_pair(XOR, &VMCPU::funcXor));
-    dicOpcodesFunction.insert(std::make_pair(XORL, &VMCPU::funcXorl));
-    dicOpcodesFunction.insert(std::make_pair(NOT, &VMCPU::funcNot));
-    dicOpcodesFunction.insert(std::make_pair(NOTB, &VMCPU::funcNotb));
-    dicOpcodesFunction.insert(std::make_pair(ADVRD, &VMCPU::funcAdvrd));
-    dicOpcodesFunction.insert(std::make_pair(SUBVRD, &VMCPU::funcSubvrd));
-    dicOpcodesFunction.insert(std::make_pair(SHR, &VMCPU::funcShr));
-    dicOpcodesFunction.insert(std::make_pair(SHL, &VMCPU::funcShl));
-    dicOpcodesFunction.insert(std::make_pair(CMP, &VMCPU::funcCmp));
-    dicOpcodesFunction.insert(std::make_pair(CMPL, &VMCPU::funcCmpl));
-    dicOpcodesFunction.insert(std::make_pair(VMSYSBUS, &VMCPU::funcVmSysbus));
-    dicOpcodesFunction.insert(std::make_pair(PUSH, &VMCPU::funcPush));
-    dicOpcodesFunction.insert(std::make_pair(POP, &VMCPU::funcPop));
-    dicOpcodesFunction.insert(std::make_pair(CLST, &VMCPU::funcClSt));
-    dicOpcodesFunction.insert(std::make_pair(SETSP, &VMCPU::funcSetSp));
-    dicOpcodesFunction.insert(std::make_pair(POC, &VMCPU::funcPoc));
-    dicOpcodesFunction.insert(std::make_pair(POCN, &VMCPU::funcPocn));
-    dicOpcodesFunction.insert(std::make_pair(TIB, &VMCPU::funcTib));
-    dicOpcodesFunction.insert(std::make_pair(GIC, &VMCPU::funcGic));
-    dicOpcodesFunction.insert(std::make_pair(PIC, &VMCPU::funcPic));
-    dicOpcodesFunction.insert(std::make_pair(PICN, &VMCPU::funcPicn));
-    dicOpcodesFunction.insert(std::make_pair(PXV, &VMCPU::funcPxv));
-    dicOpcodesFunction.insert(std::make_pair(PXVN, &VMCPU::funcPxvn));
 }
 
 VMCPU::~VMCPU()
